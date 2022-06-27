@@ -34,7 +34,7 @@ require (
 	github.com/minio/minio-go/v6 v6.0.57
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/philhofer/fwd v1.0.0 // indirect
-	github.com/sirupsen/logrus v1.6.0
+	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/afero v1.8.2
 	github.com/stretchr/testify v1.7.0
 	github.com/technosophos/moniker v0.0.0-20180509230615-a5dbd03a2245
@@ -80,7 +80,6 @@ require (
 	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/klauspost/compress v1.9.5 // indirect
 	github.com/klauspost/cpuid v1.2.3 // indirect
-	github.com/konsorten/go-windows-terminal-sequences v1.0.3 // indirect
 	github.com/markbates/hmax v1.0.0 // indirect
 	github.com/mattn/go-colorable v0.1.9 // indirect
 	github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d // indirect
