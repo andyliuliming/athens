@@ -34,7 +34,7 @@ require (
 	github.com/minio/minio-go/v6 v6.0.57
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/philhofer/fwd v1.0.0 // indirect
-	github.com/sirupsen/logrus v1.6.0
+	github.com/sirupsen/logrus v1.9.3
 	github.com/spf13/afero v1.8.2
 	github.com/stretchr/testify v1.7.0
 	github.com/technosophos/moniker v0.0.0-20180509230615-a5dbd03a2245
@@ -47,7 +47,7 @@ require (
 	golang.org/x/net v0.0.0-20220127200216-cd36cc0744dd // indirect
 	golang.org/x/oauth2 v0.0.0-20211104180415-d3ed0bb246c8
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
-	golang.org/x/sys v0.0.0-20220209214540-3681064d5158 // indirect
+	golang.org/x/sys v0.0.0-20220715151400-c0bba94af5f8 // indirect
 	google.golang.org/api v0.67.0
 	gopkg.in/DataDog/dd-trace-go.v1 v1.10.0 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
@@ -80,7 +80,6 @@ require (
 	github.com/json-iterator/go v1.1.11 // indirect
 	github.com/klauspost/compress v1.9.5 // indirect
 	github.com/klauspost/cpuid v1.2.3 // indirect
-	github.com/konsorten/go-windows-terminal-sequences v1.0.3 // indirect
 	github.com/markbates/hmax v1.0.0 // indirect
 	github.com/mattn/go-colorable v0.1.9 // indirect
 	github.com/mattn/go-ieproxy v0.0.0-20190702010315-6dee0af9227d // indirect
