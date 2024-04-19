@@ -26,6 +26,10 @@ RUN DATE="$(date -u +%Y-%m-%d-%H:%M:%S-%Z)" && \
     go build \
     -ldflags "-X github.com/gomods/athens/pkg/build.version=$VERSION -X github.com/gomods/athens/pkg/build.buildDate=$DATE -s -w" \
     -o /bin/athens-proxy ./cmd/proxy
+RUN apk add curl
+RUN curl https://artifprodeastus.blob.core.windows.net/publicbinaryartifacts/gitcredentialmanager/2.4.1/git-credential-manager --output /git-credential-manager
+RUN curl https://artifprodeastus.blob.core.windows.net/publicbinaryartifacts/gitcredentialmanager/2.4.1/libHarfBuzzSharp.so --output /libHarfBuzzSharp.so
+RUN curl https://artifprodeastus.blob.core.windows.net/publicbinaryartifacts/gitcredentialmanager/2.4.1/libSkiaSharp.so --output /libSkiaSharp.so
 
 FROM alpine:${ALPINE_VERSION}
 
@@ -34,12 +38,19 @@ ENV GO111MODULE=on
 COPY --from=builder /bin/athens-proxy /bin/athens-proxy
 COPY --from=builder /go/src/github.com/gomods/athens/config.dev.toml /config/config.toml
 COPY --from=builder /usr/local/go/bin/go /bin/go
+COPY --from=builder /git-credential-manager /gcm/git-credential-manager
+COPY --from=builder /libSkiaSharp.so /gcm/libSkiaSharp.so
+COPY --from=builder /libHarfBuzzSharp.so /gcm/libHarfBuzzSharp.so
+
+RUN chmod +x /gcm/git-credential-manager
 
 RUN chmod 644 /config/config.toml
 
 # Add tini, see https://github.com/gomods/athens/issues/1155 for details.
 RUN apk add --update git git-lfs mercurial openssh-client subversion procps fossil tini && \
     mkdir -p /usr/local/go
+
+RUN apk add gcompat icu-libs
 
 ARG USER=athens
 RUN adduser -D -h /home/$USER $USER
